@@ -3,7 +3,7 @@ include:
 
 services:
   ragflow:
-    depends_on:
+    # depends_on:
       # mysql:
       #   condition: service_healthy
     image: ${RAGFLOW_IMAGE}
