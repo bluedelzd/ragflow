@@ -4,8 +4,8 @@ include:
 services:
   ragflow:
     depends_on:
-      mysql:
-        condition: service_healthy
+      # mysql:
+      #   condition: service_healthy
     image: ${RAGFLOW_IMAGE}
     container_name: ragflow-server
     ports:
