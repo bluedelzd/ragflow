@@ -1,4 +1,4 @@
-services:
+# services:
   # es01:
   #   container_name: ragflow-es-01
   #   profiles:
@@ -129,7 +129,7 @@ services:
 
 
 
-volumes:
+# volumes:
   # esdata01:
   #   driver: local
   # infinity_data:
