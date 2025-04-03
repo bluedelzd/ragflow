@@ -130,8 +130,8 @@ services:
 
 
 volumes:
-  # esdata01:
-  #   driver: local
+  esdata01:
+    driver: local
   # infinity_data:
   #   driver: local
   # mysql_data:
