@@ -3,9 +3,9 @@ include:
 
 services:
   ragflow:
-    depends_on:
-      minio:
-        condition: service_healthy
+    # depends_on:
+    #   minio:
+    #     condition: service_healthy
     image: ${RAGFLOW_IMAGE}
     container_name: ragflow-server
     ports:
