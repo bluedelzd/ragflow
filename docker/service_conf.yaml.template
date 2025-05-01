@@ -46,12 +46,12 @@ redis:
 #   prefix_path: 'prefix_path'
 #   signature_version: 'v4'
 #   addressing_style: 'path'
-# oss:
-#   access_key: '${ACCESS_KEY}'
-#   secret_key: '${SECRET_KEY}'
-#   endpoint_url: '${ENDPOINT}'
-#   region: '${REGION}'
-#   bucket: '${BUCKET}'
+oss:
+  access_key: '${ACCESS_KEY}'
+  secret_key: '${SECRET_KEY}'
+  endpoint_url: '${ENDPOINT}'
+  region: '${REGION}'
+  bucket: '${BUCKET}'
 #   prefix_path: '${OSS_PREFIX_PATH}'
 # azure:
 #   auth_type: 'sas'
