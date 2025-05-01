@@ -1,79 +1,79 @@
 services:
-  es01:
-    container_name: ragflow-es-01
-    profiles:
-      - elasticsearch
-    image: elasticsearch:${STACK_VERSION}
-    volumes:
-      - esdata01:/usr/share/elasticsearch/data
-    ports:
-      - ${ES_PORT}:9200
-    env_file: .env
-    environment:
-      - node.name=es01
-      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
-      - bootstrap.memory_lock=false
-      - discovery.type=single-node
-      - xpack.security.enabled=true
-      - xpack.security.http.ssl.enabled=false
-      - xpack.security.transport.ssl.enabled=false
-      - cluster.routing.allocation.disk.watermark.low=5gb
-      - cluster.routing.allocation.disk.watermark.high=3gb
-      - cluster.routing.allocation.disk.watermark.flood_stage=2gb
-      - TZ=${TIMEZONE}
-    mem_limit: ${MEM_LIMIT}
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:9200"]
-      interval: 10s
-      timeout: 10s
-      retries: 120
-    networks:
-      - ragflow
-    restart: on-failure
+  # es01:
+  #   container_name: ragflow-es-01
+  #   profiles:
+  #     - elasticsearch
+  #   image: elasticsearch:${STACK_VERSION}
+  #   volumes:
+  #     - esdata01:/usr/share/elasticsearch/data
+  #   ports:
+  #     - ${ES_PORT}:9200
+  #   env_file: .env
+  #   environment:
+  #     - node.name=es01
+  #     - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+  #     - bootstrap.memory_lock=false
+  #     - discovery.type=single-node
+  #     - xpack.security.enabled=true
+  #     - xpack.security.http.ssl.enabled=false
+  #     - xpack.security.transport.ssl.enabled=false
+  #     - cluster.routing.allocation.disk.watermark.low=5gb
+  #     - cluster.routing.allocation.disk.watermark.high=3gb
+  #     - cluster.routing.allocation.disk.watermark.flood_stage=2gb
+  #     - TZ=${TIMEZONE}
+  #   mem_limit: ${MEM_LIMIT}
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "curl http://localhost:9200"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 120
+  #   networks:
+  #     - ragflow
+  #   restart: on-failure
 
-  opensearch01:
-    container_name: ragflow-opensearch-01
-    profiles:
-      - opensearch
-    image: hub.icert.top/opensearchproject/opensearch:2.19.1
-    volumes:
-      - osdata01:/usr/share/opensearch/data
-    ports:
-      - ${OS_PORT}:9201
-    env_file: .env
-    environment:
-      - node.name=opensearch01
-      - OPENSEARCH_PASSWORD=${OPENSEARCH_PASSWORD}
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=${OPENSEARCH_PASSWORD}
-      - bootstrap.memory_lock=false
-      - discovery.type=single-node
-      - plugins.security.disabled=false
-      - plugins.security.ssl.http.enabled=false
-      - plugins.security.ssl.transport.enabled=true
-      - cluster.routing.allocation.disk.watermark.low=5gb
-      - cluster.routing.allocation.disk.watermark.high=3gb
-      - cluster.routing.allocation.disk.watermark.flood_stage=2gb
-      - TZ=${TIMEZONE}
-      - http.port=9201
-    mem_limit: ${MEM_LIMIT}
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:9201"]
-      interval: 10s
-      timeout: 10s
-      retries: 120
-    networks:
-      - ragflow
-    restart: on-failure
+  # opensearch01:
+  #   container_name: ragflow-opensearch-01
+  #   profiles:
+  #     - opensearch
+  #   image: hub.icert.top/opensearchproject/opensearch:2.19.1
+  #   volumes:
+  #     - osdata01:/usr/share/opensearch/data
+  #   ports:
+  #     - ${OS_PORT}:9201
+  #   env_file: .env
+  #   environment:
+  #     - node.name=opensearch01
+  #     - OPENSEARCH_PASSWORD=${OPENSEARCH_PASSWORD}
+  #     - OPENSEARCH_INITIAL_ADMIN_PASSWORD=${OPENSEARCH_PASSWORD}
+  #     - bootstrap.memory_lock=false
+  #     - discovery.type=single-node
+  #     - plugins.security.disabled=false
+  #     - plugins.security.ssl.http.enabled=false
+  #     - plugins.security.ssl.transport.enabled=true
+  #     - cluster.routing.allocation.disk.watermark.low=5gb
+  #     - cluster.routing.allocation.disk.watermark.high=3gb
+  #     - cluster.routing.allocation.disk.watermark.flood_stage=2gb
+  #     - TZ=${TIMEZONE}
+  #     - http.port=9201
+  #   mem_limit: ${MEM_LIMIT}
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "curl http://localhost:9201"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 120
+  #   networks:
+  #     - ragflow
+  #   restart: on-failure
 
-  infinity:
+  # infinity:
     container_name: ragflow-infinity
     profiles:
       - infinity
@@ -104,7 +104,7 @@ services:
     restart: on-failure
 
 
-  mysql:
+  # mysql:
     # mysql:5.7 linux/arm64 image is unavailable.
     image: mysql:8.0.39
     container_name: ragflow-mysql
@@ -152,7 +152,7 @@ services:
       - ragflow
     restart: on-failure
 
-  redis:
+  # redis:
     # swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/valkey/valkey:8
     image: valkey/valkey:8
     container_name: ragflow-redis
@@ -169,18 +169,18 @@ services:
 
 
 volumes:
-  esdata01:
-    driver: local
-  osdata01:
-    driver: local
-  infinity_data:
-    driver: local
-  mysql_data:
-    driver: local
+  # esdata01:
+  #   driver: local
+  # osdata01:
+  #   driver: local
+  # infinity_data:
+  #   driver: local
+  # mysql_data:
+  #   driver: local
   minio_data:
     driver: local
-  redis_data:
-    driver: local
+  # redis_data:
+  #   driver: local
 
 networks:
   ragflow:
